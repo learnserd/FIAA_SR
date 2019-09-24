@@ -35,9 +35,9 @@ MR=zeros(nt,nx,ny);
   MR(1:nt/2+1,:,:)=permute(Df(:,:,1:nt/2+1),[3,1,2]);
 MR(nt/2+2:nt,:,:)=conj(flipud(MR(2:nt/2,:,:)));
  Dt=real(ifft(MR));                             %transform the data back to time domain
- snr(a)= SNR1(seis_origin(:),Dt(:))             %compute SNR
+ snr= SNR1(seis_origin(:),Dt(:))             %compute SNR
  Threedimension(seis_origin,2,3,1,1);           %plot data
 Threedimension(seis_sam,2,3,1,2);
     
 Threedimension(Dt,2,3,1,3);
-Threedimension(abs(seis_origin-d),2,3,1,4);
+Threedimension(abs(seis_origin-Dt),2,3,1,4);
