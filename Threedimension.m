@@ -1,23 +1,6 @@
-% load 'original_data_128'
-% load '3Dsbb'
-% load 'D3_data';
-% % X_3D=permute(X_3D,[2 3 1]);'
-% X_3D=D3_data(500:560,70:178,70:178);
-% % X_3D=d3_128(1:64,1:32,1:32);
-% X_3D=D(500:563,100:131,100:131);
+
 function  Threedimension(XZT,x1,y1,z1,num)
 X_3D=permute(XZT,[x1 y1 z1]);
-%  X_3D=permute(X_3D,[2 3 1]);
-% X_3D=D(500:563,100:131,100:131);
-%load M_3D;
-%load X_3D;
-% re=X_3D-M_r;
-% X_3D=permute(re,[2 3 1]);
-% %M_3D=permute(X_3D-M_r,[1 3 2]);
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%画原始三维地震数据图
-% %%%画采样三维地震数据图
-% %%%画SEQ-SVD重建后三维地震数据图
 [nx,ny,nz]=size(X_3D);
 N=[nx,ny,nz];
 if nargin==5
@@ -37,7 +20,7 @@ y=1:ny;
 z=1:nz;
 % close all;
 
-%x=1  yz面
+%x=1  yz
 [Y,Z]=meshgrid(1:ny,1:nz);
 X=ones(nz,ny);
 C=X;
@@ -51,7 +34,7 @@ surf(X,Y,Z,C);
 box on;
 shading interp;
 hold on;
-%x=nx yz面
+%x=nx yz
 X=zeros(nz,ny)+nx;
 C=X;
 for k=1:nz
@@ -63,7 +46,7 @@ surf(X,Y,Z,C);
 
 hold on;
 
-%y=1  xz面
+%y=1  xz
 [X,Z]=meshgrid(1:nx,1:nz);
 Y=ones(nz,nx);
 C=Y;
@@ -77,7 +60,7 @@ surf(X,Y,Z,C);
 box on;
 shading interp;
 hold on;
-%y=ny xz面
+%y=ny xz
 Y=zeros(nz,nx)+ny;
 C=Y;
 for k=1:nz
@@ -89,7 +72,7 @@ surf(X,Y,Z,C);
 box on
 hold on;
 
-%z=1 xy面
+%z=1 xy
 [X,Y]=meshgrid(1:nx,1:ny);
 Z=ones(ny,nx);
 C=Z;
@@ -102,7 +85,7 @@ surf(X,Y,Z,C);
 % grid off;
 
 hold on;
-%z=nz xy面
+%z=nz xy
 Z=zeros(ny,nx)+nz;
 C=Z;
 for j=1:ny
@@ -111,40 +94,26 @@ for j=1:ny
     end
 end
 surf(X,Y,Z,C);
-% grid off;
-% axis square;
-% box on;
  shading interp;
 hold on;
-% grid off;
-% box on
-% axis square
 axis([0 nx+1 0 ny+1 0 nz+1]);
 % caxis([0,1]);
 colormap(gray);
 % colorbar;
     colormap(seismic(1));%Using a colored colormap
-%         colormap(seis_colors);%Using a colored colormap
-%     caxis([0 1]);
-% set(gca,'Clim',[0 1]);
-%     colorbar
 
 xlabel('Xline','Rotation',-3,'fontsize',12);
 ylabel('Crossline','Rotation',43,'fontsize',12);
 zlabel('Time Sample','fontsize',15);
-% x2=ylabel('Y');
-%  camroll(x2,-23)
 axis([1 32 1 32 1 300]);
 % set(gca,'zTick',(10:10:300));
 set (gcf,'Position',[500,300,300,350]); 
 set(gca,'tickdir','out');
 set(gca,'ydir','reverse');
-% set(gca,'zdir','reverse');
-%  set(gca,'ytick',[0 30 60])
  view(16, 6);
 % margin = get(gca, 'TightInset');  
-% set(gca, 'Position', [0+margin(1) 0+margin(2) 1-margin(1)-margin(3) 1-margin(2)-margin(4)]);%去除figure空白区域
-% set(gcf, 'color', [1 1 1]);  %背景设为白色
+% set(gca, 'Position', [0+margin(1) 0+margin(2) 1-margin(1)-margin(3) 1-margin(2)-margin(4)]);%鍘婚櫎figure绌虹櫧鍖哄煙
+% set(gcf, 'color', [1 1 1]);  %鑳屾櫙璁句负鐧借壊
 axis tight;
 
 % axis equal; 
