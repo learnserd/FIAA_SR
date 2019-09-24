@@ -29,7 +29,7 @@ iter=10;             %Iteration number
  end
  se_fft=fft(seis_sam);          %transform data into frequency domain                                                                      %Index of available data
 
-Index=get_Index(block_size,block_size);   %Index is used in get_E.m script
+Index=get_Index(block_size,block_size);   %Index is used in get_E.m script1
 Df=ones(nx,ny,nt);    
 Ds=ones(block_size,block_size*block_num);  
 K=80;                    %frequency grids: Kx=Ky=80
