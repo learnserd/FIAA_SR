@@ -1,6 +1,6 @@
 % Demonstration script for 3D seismic reconstruction via Fast Iterative Adaptive Approach 
 % Corresponding paper:Fast Iterative Adaptive Approach for 3D Seismic Data Reconstruction
-%Description: This script uses windowing technique to make the guarantee the linear events assumption. 
+%Description: This script uses windowing strategy to make the guarantee the linear events assumption. 
 % Author: ZhiGang Dai
 % Email:  daizg@cug.edu.cn
 % Date: May, 8, 2018
